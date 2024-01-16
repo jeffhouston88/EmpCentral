@@ -1,0 +1,65 @@
+
+<form id="empForm" name="empForm" #form="ngForm">
+
+  <table>
+    <tr>
+      <td>
+        <span>       
+          <label  name="lblHId">{{datasource.PersonalInfo.Id}}</label>
+        </span>
+      </td>
+      <td>
+        <span>
+          <label  name="lblHfirstName">{{datasource.PersonalInfo.FirstName}}  {{datasource.PersonalInfo.LastName}}</label>
+          
+        </span>
+      </td>
+      <td>
+        <span>
+          <label for="isActive" name="lblhisActive">Is Active</label>
+          <p-inputSwitch [(ngModel)]="datasource.PersonalInfo.IsActive" inputId="isActive" [readonly]="true" name="hisActive"></p-inputSwitch>
+
+        </span>
+
+      </td>
+    </tr>
+    <tr >
+      <td colspan="3">
+        <p-tabView>
+          <p-tabPanel header="Contact">
+            <ng-template pTemplate="content">
+              <app-emp-contact></app-emp-contact>
+            </ng-template>
+          </p-tabPanel>
+          <p-tabPanel header="Contracts">
+            <ng-template pTemplate="content">
+              Complex Content to Lazy Load
+            </ng-template>
+          </p-tabPanel>
+          <p-tabPanel header="Insurance">
+            <ng-template pTemplate="content">
+              Complex Content to Lazy Load
+            </ng-template>
+          </p-tabPanel>
+          <p-tabPanel header="Invoice">
+            <ng-template pTemplate="content">
+              Complex Content to Lazy Load
+            </ng-template>
+          </p-tabPanel>
+          <p-tabPanel header="Immigration">
+            <ng-template pTemplate="content">
+              Complex Content to Lazy Load
+            </ng-template>
+          </p-tabPanel>
+
+        </p-tabView>
+
+      </td>
+
+    </tr>
+
+  </table> 
+  </form>
+
+
+

@@ -1,0 +1,177 @@
+<p></p>
+<p></p>
+<p></p>
+
+<p-table #dt [value]="datasource" [(selection)]="selectedTimesheets" selectionMode="multiple" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped">
+
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <button pButton label="Invoice" class="p-button-outlined" icon="pi pi-filter-slash" (click)="generateinvoice(dt)"></button>      
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width:5%">Select</th>
+      <th style="width:5%">Year</th>
+      <th style="width:5%">Month</th>
+      <th style="width:5%">Sunday</th>
+      <th style="width:5%">Monday</th>
+      <th style="width:5%">Tuesday</th>
+      <th style="width:5%">Wednesday</th>
+      <th style="width:5%">Thursday</th>
+      <th style="width:5%">Friday</th>
+      <th style="width:5%">Saturday</th>
+      <th style="width:5%">Attachment</th>
+      <th style="width:5%">Approved</th>
+      <th style="width:30%">Attachments</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>
+        <p-dropdown [options]="Years" name="selectedYear" [(ngModel)]="selectedYear" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, 'TimesheetYear', 'equals')" [showClear]="true" placeholder="Select a Year"></p-dropdown>
+      </th>
+      <th>
+        <p-dropdown [options]="Months" name="selectedMonth" [(ngModel)]="selectedMonth" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, 'TimesheetMonth', 'equals')" [showClear]="true" placeholder="Select a Month"></p-dropdown>
+      </th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+    </tr>
+
+  </ng-template>
+
+
+  <ng-template pTemplate="body" let-datasource let-editing="editing">
+    <tr>
+      <td><p-tableCheckbox [value]="datasource.TimeSheet"></p-tableCheckbox></td>
+      <!--<td>{{datasource.TimesheetNum}}</td>-->
+      <td>{{datasource.TimeSheetYear}}</td>
+      <td>{{datasource.TimesheetMonth}}</td>
+      <td [pEditableColumn]="datasource.TimesheetSunHr" pEditableColumnField="Sunday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetSunHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetSunHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td [pEditableColumn]="datasource.TimesheetMonHr" pEditableColumnField="Monday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetMonHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetMonHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td [pEditableColumn]="datasource.TimesheetTueHr" pEditableColumnField="Tuesday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetTueHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetTueHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+      <td [pEditableColumn]="datasource.TimesheetWenHr" pEditableColumnField="Wednesday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetWenHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetWenHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+      <td [pEditableColumn]="datasource.TimesheetThuHr" pEditableColumnField="Thursday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetThuHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetThuHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+      <td [pEditableColumn]="datasource.TimesheetFriHr" pEditableColumnField="Friday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetFriHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetFriHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+      <td [pEditableColumn]="datasource.TimesheetSatHr" pEditableColumnField="Saturday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.TimesheetSatHr" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimesheetSatHr }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td>{{datasource.TimeSheetAttachmentIds}}</td>
+
+      <td [pEditableColumn]="datasource.TimeSheetApproved" pEditableColumnField="isApproved">
+        <p-cellEditor>
+          <ng-template pTemplate="edit">
+            <!--<input p-checkbox type="text" [(ngModel)]="datasource.TimeSheetApproved" />-->
+            <p-checkbox [(ngModel)]="datasource.TimeSheetApproved" inputId="isApproved"></p-checkbox>
+
+
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.TimeSheetApproved }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td>
+
+
+        <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" (onUpload)="onUpload($event)"></p-fileUpload>
+
+
+        <!--<p-fileUpload name="myfile[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*">
+          <ng-template pTemplate="toolbar">
+            <div class="py-3">Upload 3 Files</div>
+          </ng-template>
+          <ng-template let-file pTemplate="file">
+            <div>Custom UI to display a file</div>
+          </ng-template>
+          <ng-template pTemplate="content" let-files>
+            <div>Additional content.</div>
+          </ng-template>
+        </p-fileUpload>-->
+
+      </td>
+
+    </tr>
+  </ng-template>
+</p-table>

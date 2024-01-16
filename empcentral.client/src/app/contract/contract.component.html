@@ -1,0 +1,120 @@
+
+
+
+
+
+
+
+<p-table [value]="datasource" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width:5%">ID</th>
+      <th style="width:20%">Vendor</th>
+      <th style="width:10%">Start Date</th>
+      <th style="width:10%">End Date</th>
+      <th style="width:10%">Vendor Pay Rate</th>
+      <th style="width:10%">Emp Pay Rate</th>
+      <th style="width:10%">IsActive</th>      
+    </tr>
+  </ng-template>
+
+
+  <ng-template pTemplate="body" let-datasource let-editing="editing">
+    <tr>
+
+      <td>{{datasource.ContractID}}</td>
+
+      <!--<td [pEditableColumn]="datasource.VendorID" pEditableColumnField="VendorID">
+    <p-cellEditor>
+      <ng-template pTemplate="input">
+        <input pInputText type="text" [(ngModel)]="datasource.VendorID" />
+      </ng-template>
+      <ng-template pTemplate="output">
+        {{ datasource.VendorID }}
+      </ng-template>
+    </p-cellEditor>
+  </td>-->
+
+      <td [pEditableColumn]="datasource.VendorID" pEditableColumnField="VendorID">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown appendTo="body" [options]="Vendors" [(ngModel)]="datasource.VendorID"    [style]="{'width':'100%'}"></p-dropdown>            
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{datasource.VendorID.name}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+
+
+      <td [pEditableColumn]="datasource.StartDate" pEditableColumnField="Start Date">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <!--<input pInputText type="text" [(ngModel)]="datasource.StartDate" />-->
+            <p-calendar [(ngModel)]="datasource.StartDate" [showIcon]="true" inputId="startDate" name="startDate"></p-calendar>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.StartDate }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td [pEditableColumn]="datasource.EndDate" pEditableColumnField="End Date">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <!--<input pInputText type="text" [(ngModel)]="datasource.TimesheetTueHr" />-->
+            <p-calendar [(ngModel)]="datasource.EndDate" [showIcon]="true" inputId="EndDate" name="EndDate"></p-calendar>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.EndDate }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+      <td [pEditableColumn]="datasource.VendorChargeRate" pEditableColumnField="Wednesday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <!--<input pInputText type="text" [(ngModel)]="datasource.TimesheetWenHr" />-->
+            <p-inputNumber [(ngModel)]="datasource.VendorChargeRate" inputId="vChargeRate" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.VendorChargeRate }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+      <td [pEditableColumn]="datasource.EmployeePayRate" pEditableColumnField="Thursday">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <!--<input pInputText type="text" [(ngModel)]="datasource.TimesheetThuHr" />-->
+            <p-inputNumber [(ngModel)]="datasource.EmployeePayRate" inputId="ePayrate" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.EmployeePayRate }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+
+      <td [pEditableColumn]="datasource.IsActive" pEditableColumnField="IsActive">
+        <p-cellEditor>
+          <ng-template pTemplate="edit">
+            <!--<p-checkbox [(ngModel)]="datasource.IsActive" inputId="IsActive"></p-checkbox>-->
+            <p-inputSwitch [(ngModel)]="datasource.IsActive" inputId="IsActive" name="IsActive"></p-inputSwitch>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.IsActive }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+    </tr>
+  </ng-template>
+</p-table>
+

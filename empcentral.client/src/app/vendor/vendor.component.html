@@ -1,0 +1,45 @@
+<p-table [value]="datasource" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width:5%">ID</th>
+      <th style="width:50%">Vendor Name</th>   
+      <th style="width:10%">IsActive</th>
+    </tr>
+  </ng-template>
+
+
+  <ng-template pTemplate="body" let-datasource let-editing="editing">
+    <tr>
+
+      <td>{{datasource.VendorID}}</td>
+
+      <td [pEditableColumn]="datasource.VendorName" pEditableColumnField="VendorID">
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.VendorName" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.VendorName }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+
+
+
+      <td [pEditableColumn]="datasource.IsActive" pEditableColumnField="IsActive">
+        <p-cellEditor>
+          <ng-template pTemplate="edit">
+            <!--<p-checkbox [(ngModel)]="datasource.IsActive" inputId="IsActive"></p-checkbox>-->
+            <p-inputSwitch [(ngModel)]="datasource.IsActive" inputId="IsActive" name="IsActive"></p-inputSwitch>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.IsActive }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
