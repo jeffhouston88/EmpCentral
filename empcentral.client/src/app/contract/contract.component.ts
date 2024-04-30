@@ -12,12 +12,12 @@ export class ContractComponent {
 
   //datasource: Contract;
   //datasource = new Array<Contract>();
-  datasource : any[];
-  Vendors : any[];
-  datasource1 = new Contract(1,1, new Date(2024, 1, 1), new Date(2024, 12, 30), 45.50, 45.50, true);
+  datasource: any[];
+  Vendors: any[];
+  datasource1 = new Contract(1, 1, new Date(2024, 1, 1), new Date(2024, 12, 30), 45.50, 45.50, true);
   datasource2 = new Contract(1, 2, new Date(2024, 1, 1), new Date(2024, 12, 30), 45.50, 45.50, true);
 
-  
+
 
   ngOnInit(): void {
 
@@ -28,7 +28,7 @@ export class ContractComponent {
       { label: 'Vendor1', value: { id: 1, name: 'Vendor1' } },
       { label: 'Vendor2', value: { id: 2, name: 'Vendor2' } }
     ];
-      
+
     this.datasource =
       [
         {
@@ -48,10 +48,8 @@ export class ContractComponent {
           IsActive: true
         }
       ];
-         
-
   }
-  
+
 
   translate(value: number): string {
     if (value === 1) {

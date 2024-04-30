@@ -1,0 +1,22 @@
+<!-- login.component.html -->
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-label>Login</mat-label>
+  </mat-card-header>
+
+    <form (ngSubmit)="login()">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="username" name="uname" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="psw" type="password" required>
+      </mat-form-field>
+
+      
+  
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+  </mat-card>

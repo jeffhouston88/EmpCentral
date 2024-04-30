@@ -1,0 +1,74 @@
+<!-- <h1 id="tableLabel">Weather forecast</h1>
+
+
+<p-menubar [model]="menuitems"></p-menubar>
+<router-outlet></router-outlet> -->
+
+
+
+<mat-toolbar style="background-color: #d7e3ff;color: #005cbb;">
+
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div>Time Sheets</div>
+  <!-- <mat-icon>home</mat-icon> -->
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <button mat-icon-button>
+      <mat-icon>person</mat-icon>
+      
+    </button>
+  </button>
+  <div>Sai Pradeep Bellana</div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="'/dashboard/profile'">Profile</button>
+    <button mat-menu-item [routerLink]="'/login'">Logout</button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" mode="push">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/home'">Home</a>
+      </mat-list-item>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Time Sheets Management
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/timesheet'">List</a>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/create'">Create</a>
+          </mat-list-item>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Employees Management
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'">List</a>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/profile'">Create</a>
+          </mat-list-item>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-toolbar style="background-color: #d7e3ff;color: #005cbb;"></mat-toolbar>

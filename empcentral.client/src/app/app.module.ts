@@ -24,11 +24,31 @@ import { TimesheetComponent } from './timesheet/timesheet.component';
 import { ContractComponent } from './contract/contract.component';
 import { EmpContactComponent } from './emp/emp-contact/emp-contact.component';
 
-import {jsPDF }  from 'jspdf';
+
 import html2canvas from 'html2canvas';
 
+import { LandingComponent } from './landing/landing/landing.component';
+import { LoginComponent } from './login/login/login.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { ProfileComponent } from './profile/profile/profile.component';
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { HomeComponent } from './home/home/home.component';
 
-
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { CreateTimesheetComponent } from './create-timesheet/create-timesheet.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -37,14 +57,23 @@ import html2canvas from 'html2canvas';
     VendorComponent,
     TimesheetComponent,
     ContractComponent,
-    EmpContactComponent
+    EmpContactComponent,
+    LandingComponent,
+    LoginComponent,
+    ProfileComponent,
+    HomeComponent,
+    CreateTimesheetComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,
-    AppRoutingModule, BrowserAnimationsModule,
-    ButtonModule, MenubarModule, InputTextModule, InputSwitchModule, CalendarModule, TabViewModule, TableModule, FileUploadModule, InputNumberModule, DropdownModule
+    MatTableModule,
+    MatPaginatorModule,
+    AppRoutingModule, BrowserAnimationsModule,MatDatepickerModule, MatExpansionModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatCardModule, MatIconModule, MatButtonModule, MatMenuModule, MatToolbarModule, MatSidenavModule,
+    ButtonModule, MenubarModule, InputTextModule, MatListModule, InputSwitchModule, CalendarModule, TabViewModule, TableModule, FileUploadModule, InputNumberModule, DropdownModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync(),provideNativeDateAdapter()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
