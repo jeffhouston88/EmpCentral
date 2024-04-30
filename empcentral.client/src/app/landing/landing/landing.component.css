@@ -1,0 +1,13 @@
+/* app.component.css */
+.sidenav-container {
+  height: calc(100vh - 128px);
+}
+
+.sidenav {
+  width: 250px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+

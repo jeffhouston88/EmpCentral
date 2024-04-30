@@ -4,27 +4,23 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
-  Vendor: string;
   status: string;
+  transferredTo: string;
   recordedHours: number;
   periodStarting: string;
   periodEnding: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { Vendor: "Apple", status: 'InProcess', recordedHours: 40, periodStarting: '15th April 2024', periodEnding: "19th April 2024" },
-  { Vendor: "Apple", status: 'Approved', recordedHours: 40, periodStarting: '8th April 2024', periodEnding: "12th April 2024" },
-  { Vendor: "Apple", status: 'Approved', recordedHours: 40, periodStarting: '1st April 2024', periodEnding: "5th April 2024" },
-  { Vendor: "Apple", status: 'Approved', recordedHours:40, periodStarting: '25th March 2024', periodEnding: "29th March 2024" },
-
+  { transferredTo: "1", status: 'Hydrogen', recordedHours: 1.0079, periodStarting: '12th April 2024', periodEnding: "sdfs" }
 ];
 
 @Component({
-  selector: 'app-timesheet',
-  templateUrl: './timesheet.component.html',
-  styleUrl: './timesheet.component.css',
+  selector: 'app-create-timesheet',
+  templateUrl: './create-timesheet.component.html',
+  styleUrl: './create-timesheet.component.css',
 })
-export class TimesheetComponent {
+export class CreateTimesheetComponent {
 
 
   displayedColumns: string[] = ['status', 'transferredTo', 'periodStarting', 'periodEnding', 'recordedHours'];
