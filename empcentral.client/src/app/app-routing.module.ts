@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'home', component: HomeComponent },
       { path: 'timesheet', component: TimesheetComponent },
-      { path: 'create', component: CreateTimesheetComponent },
+      { path: 'timesheet/create', component: CreateTimesheetComponent },
       { path: 'emp', component: EmpComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]

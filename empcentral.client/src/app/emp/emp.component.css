@@ -1,5 +1,19 @@
-
-.p-field > * {
+.p-field>* {
   display: block;
 }
+
+.contactForm {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.customCard {
+  margin: 45px;
+  padding: 25px
+}
+.customCardContent{
+  margin: 20px 0;
+}
+
 

@@ -1,29 +1,131 @@
+<mat-card class="customCard">
+  <mat-card-header>
+    <mat-card-title>Contact</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="customCardContent">
+    <form [formGroup]="contactForm" class="contactForm">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Middle Name</mat-label>
+        <input matInput formControlName="middleName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Legal Name</mat-label>
+        <input matInput formControlName="legalName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="dob">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="startDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="endDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-slide-toggle formControlName="isActive" color="primary">Is Active?</mat-slide-toggle>
+      <mat-slide-toggle formControlName="isSponsorRequired" color="primary">Is Sponsorship Required?</mat-slide-toggle>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button (click)="onSave()">Save</button>
+  </mat-card-actions>
+</mat-card>
+<mat-card class="customCard">
+  <mat-card-header>
+    <mat-card-title>Contracts</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="customCardContent">
+    <form [formGroup]="contactForm" class="contactForm">
+      <mat-form-field>
+        <mat-label>Contract Details</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+     
+    </form>
+    <mat-card-actions align="end">
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button (click)="onSave()">Save</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+<mat-card class="customCard">
+  <mat-card-header>
+    <mat-card-title>Insurance</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="customCardContent">
+    <form [formGroup]="contactForm" class="contactForm">
+      <mat-form-field>
+        <mat-label>Insurance Details</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+     
+    </form>
+    <mat-card-actions align="end">
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button (click)="onSave()">Save</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+<mat-card class="customCard">
+  <mat-card-header>
+    <mat-card-title>Invoice</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="customCardContent">
 
-<form id="empForm" name="empForm" #form="ngForm">
+  </mat-card-content>
+</mat-card>
+<mat-card class="customCard">
+  <mat-card-header>
+    <mat-card-title>Immigration</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="customCardContent">
+
+  </mat-card-content>
+</mat-card>
+
+<!-- <form id="empForm" name="empForm" #form="ngForm">
 
   <table>
     <tr>
       <td>
-        <span>       
-          <label  name="lblHId">{{datasource.PersonalInfo.Id}}</label>
+        <span>
+          <label name="lblHId">{{datasource.PersonalInfo.Id}}</label>
         </span>
       </td>
       <td>
         <span>
-          <label  name="lblHfirstName">{{datasource.PersonalInfo.FirstName}}  {{datasource.PersonalInfo.LastName}}</label>
-          
+          <label name="lblHfirstName">{{datasource.PersonalInfo.FirstName}} {{datasource.PersonalInfo.LastName}}</label>
+
         </span>
       </td>
       <td>
         <span>
           <label for="isActive" name="lblhisActive">Is Active</label>
-          <p-inputSwitch [(ngModel)]="datasource.PersonalInfo.IsActive" inputId="isActive" [readonly]="true" name="hisActive"></p-inputSwitch>
+          <p-inputSwitch [(ngModel)]="datasource.PersonalInfo.IsActive" inputId="isActive" [readonly]="true"
+            name="hisActive"></p-inputSwitch>
 
         </span>
 
       </td>
     </tr>
-    <tr >
+    <tr>
       <td colspan="3">
         <p-tabView>
           <p-tabPanel header="Contact">
@@ -58,8 +160,5 @@
 
     </tr>
 
-  </table> 
-  </form>
-
-
-
+  </table>
+</form> -->
