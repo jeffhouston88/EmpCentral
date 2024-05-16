@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { TimesheetService } from '../services/timesheet.service';
 
 export interface PeriodicElement {
   Vendor: string;
@@ -32,10 +33,18 @@ export class TimesheetComponent {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  constructor(private timeSheetSvc: TimesheetService) { }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
+
+  ngonInit() {
+    this.timeSheetSvc.listTimesheets().subscribe((timesheet) => {
+      this.dataSource = new MatTableDataSource<PeriodicElement>(timesheet);
+    });
+  }
 
 
 }

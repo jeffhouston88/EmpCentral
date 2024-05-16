@@ -53,6 +53,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 
 
+import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +86,7 @@ import { MatSelectModule } from '@angular/material/select';
     ButtonModule, MenubarModule, InputTextModule,
     MatListModule, InputSwitchModule, CalendarModule,
     TabViewModule,
-    TableModule, FileUploadModule, InputNumberModule, DropdownModule
+    TableModule, FileUploadModule, InputNumberModule, DropdownModule, FlexModule, FlexLayoutModule
   ],
   providers: [
     provideAnimationsAsync(), provideNativeDateAdapter()

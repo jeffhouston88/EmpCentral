@@ -115,33 +115,40 @@
 <mat-card style="margin: 45px; padding: 25px">
     <mat-card-header>
         <mat-card-title>Timesheets</mat-card-title>
-      
+
     </mat-card-header>
     <div style="display: flex; justify-content: flex-start; padding: 10px 20px;">
         <mat-form-field>
             <mat-label>Period</mat-label>
-            <mat-select formControlName="period">
-                <mat-option value="2304-2904" selected>May 04, 2024 - May 10, 2024</mat-option>
+            <mat-select formControlName="period" (selectionChange)="changePeriod()">
+                <mat-option>Select</mat-option>
+                <mat-option *ngFor="let period of lstPeriods" [value]="period.value">{{period.viewValue}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <mat-card-content>
-        <div style="overflow: auto;" >
+        <div style="overflow: auto;">
             <form [formGroup]="timesheetForm">
-              
+
                 <table class="timesheet-table">
                     <thead>
                         <tr>
                             <th>Project</th>
                             <th>Task</th>
                             <th>Type</th>
+
+                            <ng-container>
+                                <th *ngFor="let day of days">{{day}}</th>
+                            </ng-container>
+                            <!-- 
                             <th>Sat, May 04</th>
                             <th>Sun, May 05</th>
                             <th>Mon, May 06</th>
                             <th>Tue, May 07</th>
                             <th>Wed, May 08</th>
                             <th>Thu, May 09</th>
-                            <th>Fri, May 10</th>
+                            <th>Fri, May 10</th> -->
+
                             <th>Total</th>
                         </tr>
                     </thead>
@@ -157,51 +164,49 @@
                                 <input type="text" formControlName="type">
                             </td>
                             <td>
-                                <input type="number" formControlName="day1">
+                                <input type="number" formControlName="day1" (change)="hourschange()">
                             </td>
                             <td>
-                                <input type="number" formControlName="day2">
+                                <input type="number" formControlName="day2" (change)="hourschange()">
                             </td>
                             <td>
-                                <input type="number" formControlName="day3">
+                                <input type="number" formControlName="day3" (change)="hourschange()">
                             </td>
                             <td>
-                                <input type="number" formControlName="day4">
+                                <input type="number" formControlName="day4" (change)="hourschange()">
                             </td>
                             <td>
-                                <input type="number" formControlName="day5">
+                                <input type="number" formControlName="day5" (change)="hourschange()">
                             </td>
                             <td>
-                                <input type="number" formControlName="day6">
+                                <input type="number" formControlName="day6" (change)="hourschange()">
                             </td>
                             <td>
-                                <input type="number" formControlName="day7">
+                                <input type="number" formControlName="day7" (change)="hourschange()">
                             </td>
                             <td>
-                                0
+                                <label>{{totalHours}}</label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </form>
         </div>
-    
+
     </mat-card-content>
 
     <mat-card-footer>
-    <mat-card-actions align="end">
-        <div class="example-button-row">
-            <!-- <button mat-flat-button color="warn" (click)="onCancel()">Cancel</button>
+        <mat-card-actions align="end">
+            <div class="example-button-row">
+                <!-- <button mat-flat-button color="warn" (click)="onCancel()">Cancel</button>
       
             <button mat-flat-button color="primary"  (click)="onSave()">Save</button> -->
 
-    <button mat-stroked-button color="warn"  (click)="onCancel()">Cancel</button>
-    <button mat-stroked-button color="primary" (click)="onSave()">Save</button>
+                <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+                <button mat-stroked-button color="primary" (click)="onSave()">Save</button>
 
-        </div>
-      </mat-card-actions>
-      
+            </div>
+        </mat-card-actions>
+
     </mat-card-footer>
 </mat-card>
-
-
