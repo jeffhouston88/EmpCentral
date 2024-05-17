@@ -41,7 +41,7 @@ export class EmpListComponent {
   dataSource = new MatTableDataSource(this.EmpData);
   constructor(private router: Router) { }
 
-  clickedRows = new Set<UserData>();
+ 
 
   editContact(userData: UserData) {
     let route = '../emp';

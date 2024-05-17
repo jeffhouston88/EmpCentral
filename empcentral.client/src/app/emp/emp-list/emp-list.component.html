@@ -32,18 +32,4 @@
       *matRowDef="let row; columns: displayedColumns; "></tr>
 </table>
 
-<div>
-  <h3>
-    Click Log
-  </h3>
-</div>
 
-@if (!clickedRows.size) {
-<div>Clicked rows will be logged here</div>
-}
-
-<ul>
-  @for (clickedRow of clickedRows; track clickedRow) {
-  <li>Clicked on {{clickedRow.name}}</li>
-  }
-</ul>
