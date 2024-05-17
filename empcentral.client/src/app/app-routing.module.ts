@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { HomeComponent } from './home/home/home.component';
 import { CreateTimesheetComponent } from './create-timesheet/create-timesheet.component';
+import { EmpListComponent } from './emp/emp-list/emp-list.component';
 
 const routes: Routes = [
   { path: 'vendor', component: VendorComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'timesheet', component: TimesheetComponent },
       { path: 'timesheet/create', component: CreateTimesheetComponent },
       { path: 'emp', component: EmpComponent },
+      { path: 'emp/emplist', component: EmpListComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },

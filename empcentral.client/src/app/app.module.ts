@@ -54,6 +54,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
+import { EmpListComponent } from './emp/emp-list/emp-list.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
     LoginComponent,
     ProfileComponent,
     HomeComponent,
-    CreateTimesheetComponent
+    CreateTimesheetComponent,
+    EmpListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,
