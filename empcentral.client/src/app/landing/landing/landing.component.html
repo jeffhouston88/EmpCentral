@@ -11,7 +11,7 @@
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <div>Time Sheets</div>
+  <div>Employee Central</div>
   <!-- <mat-icon>home</mat-icon> -->
   <span class="example-spacer"></span>
   <button mat-button [matMenuTriggerFor]="menu">
@@ -28,16 +28,18 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav class="sidenav" mode="push">
+  <mat-sidenav #sidenav class="sidenav" mode="side">
     <mat-list role="list">
       <mat-list-item role="listitem">
+        <mat-icon>home</mat-icon>
         <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/home'">Home</a>
       </mat-list-item>
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Time Sheets Management
+              <mat-icon>ballot</mat-icon>
+              Time Sheets
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-list-item role="listitem">
@@ -52,15 +54,16 @@
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Employees Management
+              <mat-icon>person</mat-icon>
+              Employees
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-list-item role="listitem">
             <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">List</a>
           </mat-list-item>
-          <mat-list-item role="listitem">
-            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'">Create</a>
-          </mat-list-item>
+          <!-- <mat-list-item role="listitem">
+     <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'">Create</a>
+   </mat-list-item> -->
         </mat-expansion-panel>
       </mat-accordion>
     </mat-list>
