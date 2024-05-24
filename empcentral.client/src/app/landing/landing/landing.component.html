@@ -56,8 +56,28 @@
           <mat-list-item role="listitem">
             <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'">Create</a>
           </mat-list-item>
-        </mat-expansion-panel> 
+        </mat-expansion-panel>
       </mat-accordion>
+
+
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = false" (closed)="panelOpenState = true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>person</mat-icon>
+              <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Company</a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Vendor</a>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'">Contract</a>
+          </mat-list-item>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
     </mat-list>
   </mat-sidenav>
 
