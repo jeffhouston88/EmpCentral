@@ -1,58 +1,69 @@
-
-<div flexlayout="row">
+<div flexLayout="column">
 
   <mat-card class="customCard">
     <mat-card-header>
       <mat-card-title>Contact</mat-card-title>
     </mat-card-header>
     <mat-card-content class="customCardContent">
-      
-      <form [formGroup]="contactForm" class="contactForm">
-        <div flexlayout="row wrap">
-          <mat-form-field appearance="outline" fxFlex = "100" fxFlex.gt-md="33.33" >
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName="firstName">
-          </mat-form-field>
+      <div flexLayout="column">
+        <form [formGroup]="contactForm" class="contactForm">
+          <div fxFlex="100">
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="30">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName">
+            </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex = "100" fxFlex.gt-md="33.33" >
-            <mat-label>Middle Name</mat-label>
-            <input matInput formControlName="middleName">
-          </mat-form-field>
-          
-          <mat-form-field appearance="outline" fxFlex = "100" fxFlex.gt-md="33.33" >
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastName">
-          </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="30">
+              <mat-label>Middle Name</mat-label>
+              <input matInput formControlName="middleName">
+            </mat-form-field>
 
-          
-        </div>
-       
-        
-        <mat-form-field>
-          <mat-label>Legal Name</mat-label>
-          <input matInput formControlName="legalName">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Date of Birth</mat-label>
-          <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="dob">
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Start Date</mat-label>
-          <input matInput [matDatepicker]="picker1" formControlName="startDate">
-          <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>End Date</mat-label>
-          <input matInput [matDatepicker]="picker2" formControlName="endDate">
-          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-        <mat-slide-toggle formControlName="isActive" color="primary">Is Active?</mat-slide-toggle>
-        <mat-slide-toggle formControlName="isSponsorRequired" color="primary">Is Sponsorship Required?</mat-slide-toggle>
-      </form>
+            <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="30">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName">
+            </mat-form-field>
+
+          </div>
+          <div fxFlex="100">
+
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>Legal Name</mat-label>
+              <input matInput formControlName="legalName">
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="dob">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+          <div fxFlex="100">
+
+
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>Start Date</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="startDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>End Date</mat-label>
+              <input matInput [matDatepicker]="picker2" formControlName="endDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+
+          </div>
+          <div fxFlex="100">
+            <mat-slide-toggle formControlName="isActive" color="primary" fxFlex="50" fxFlex.gt-md="45">Is
+              Active?</mat-slide-toggle>
+            <mat-slide-toggle formControlName="isSponsorRequired" color="primary" fxFlex="50" fxFlex.gt-md="45">Is
+              Sponsorship Required?</mat-slide-toggle>
+          </div>
+        </form>
+      </div>
     </mat-card-content>
     <mat-card-actions align="end">
       <button mat-button (click)="onCancel()">Cancel</button>
@@ -60,61 +71,122 @@
     </mat-card-actions>
   </mat-card>
 
+
+
+  <mat-card class="customCard">
+    <mat-card-header>
+      <mat-card-title>Contracts</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="customCardContent">
+      <div flexLayout="column">
+        <form [formGroup]="contactForm" class="contractForm">
+          <div fxFlex="100">
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="30">
+              <mat-label>Vendor Contact Name</mat-label>
+              <input matInput formControlName="firstName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="30">
+              <mat-label>Contact Eemail</mat-label>
+              <input matInput formControlName="middleName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="30">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName">
+            </mat-form-field>
+
+          </div>
+          <div fxFlex="100">
+
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>Legal Name</mat-label>
+              <input matInput formControlName="legalName">
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="dob">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+          <div fxFlex="100">
+
+
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>Start Date</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="startDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-md="45">
+              <mat-label>End Date</mat-label>
+              <input matInput [matDatepicker]="picker2" formControlName="endDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+
+          </div>
+          <div fxFlex="100">
+            <mat-slide-toggle formControlName="isActive" color="primary" fxFlex="50" fxFlex.gt-md="45">Is
+              Active?</mat-slide-toggle>
+            <mat-slide-toggle formControlName="isSponsorRequired" color="primary" fxFlex="50" fxFlex.gt-md="45">Is
+              Sponsorship Required?</mat-slide-toggle>
+          </div>
+        </form>
+      </div>
+      <!-- <form [formGroup]="contactForm" class="contactForm">
+        <mat-form-field>
+          <mat-label>Contract Details</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+
+      </form> -->
+      <mat-card-actions align="end">
+        <button mat-button (click)="onCancel()">Cancel</button>
+        <button mat-button (click)="onSave()">Save</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="customCard">
+    <mat-card-header>
+      <mat-card-title>Insurance</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="customCardContent">
+      <form [formGroup]="contactForm" class="contactForm">
+        <mat-form-field>
+          <mat-label>Insurance Details</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+
+      </form>
+      <mat-card-actions align="end">
+        <button mat-button (click)="onCancel()">Cancel</button>
+        <button mat-button (click)="onSave()">Save</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="customCard">
+    <mat-card-header>
+      <mat-card-title>Invoice</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="customCardContent">
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="customCard">
+    <mat-card-header>
+      <mat-card-title>Immigration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="customCardContent">
+
+    </mat-card-content>
+  </mat-card>
+
 </div>
 
-
-<mat-card class="customCard">
-  <mat-card-header>
-    <mat-card-title>Contracts</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="customCardContent">
-    <form [formGroup]="contactForm" class="contactForm">
-      <mat-form-field>
-        <mat-label>Contract Details</mat-label>
-        <input matInput formControlName="firstName">
-      </mat-form-field>
-     
-    </form>
-    <mat-card-actions align="end">
-      <button mat-button (click)="onCancel()">Cancel</button>
-      <button mat-button (click)="onSave()">Save</button>
-    </mat-card-actions>
-  </mat-card-content>
-</mat-card>
-<mat-card class="customCard">
-  <mat-card-header>
-    <mat-card-title>Insurance</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="customCardContent">
-    <form [formGroup]="contactForm" class="contactForm">
-      <mat-form-field>
-        <mat-label>Insurance Details</mat-label>
-        <input matInput formControlName="firstName">
-      </mat-form-field>
-     
-    </form>
-    <mat-card-actions align="end">
-      <button mat-button (click)="onCancel()">Cancel</button>
-      <button mat-button (click)="onSave()">Save</button>
-    </mat-card-actions>
-  </mat-card-content>
-</mat-card>
-<mat-card class="customCard">
-  <mat-card-header>
-    <mat-card-title>Invoice</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="customCardContent">
-
-  </mat-card-content>
-</mat-card>
-<mat-card class="customCard">
-  <mat-card-header>
-    <mat-card-title>Immigration</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="customCardContent">
-
-  </mat-card-content>
-</mat-card>
 
 <!-- <form id="empForm" name="empForm" #form="ngForm">
 
