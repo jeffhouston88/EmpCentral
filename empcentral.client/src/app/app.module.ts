@@ -24,6 +24,7 @@ import { VendorComponent } from './vendor/vendor.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
 import { ContractComponent } from './contract/contract.component';
 import { EmpContactComponent } from './emp/emp-contact/emp-contact.component';
+import { EmpListComponent } from './emp/emp-list/emp-list.component';
 
 
 import html2canvas from 'html2canvas';
@@ -54,7 +55,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
-import { EmpListComponent } from './emp/emp-list/emp-list.component';
+
 
 
 @NgModule({
