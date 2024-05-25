@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile/profile.component';
 import { HomeComponent } from './home/home/home.component';
 import { CreateTimesheetComponent } from './create-timesheet/create-timesheet.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EmpListComponent } from './emp/emp-list/emp-list.component';
 
 const routes: Routes = [
   { path: 'vendor', component: VendorComponent },
