@@ -10,6 +10,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { HomeComponent } from './home/home/home.component';
 import { CreateTimesheetComponent } from './create-timesheet/create-timesheet.component';
+import { AuthGuard } from './guards/auth.guard';
+import { EmpListComponent } from './emp/emp-list/emp-list.component';
 
 const routes: Routes = [
   { path: 'vendor', component: VendorComponent },
@@ -18,15 +20,16 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: LandingComponent,
+    canActivate: [AuthGuard], // Include the AuthGuard here
     children: [
-      { path: 'contract', component: ContractComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'home', component: HomeComponent },
-      { path: 'timesheet', component: TimesheetComponent },
-      { path: 'create', component: CreateTimesheetComponent },
-      { path: 'emp', component: EmpComponent },
+      { path: 'contract', component: ContractComponent, data: { requiredRole: ['admin'] } },
+      { path: 'profile', component: ProfileComponent, data: { requiredRole: ['admin'] } },
+      { path: 'home', component: HomeComponent, data: { requiredRole: ['admin']} },
+      { path: 'timesheet', component: TimesheetComponent, data: { requiredRole: ['admin','employee'] } },
+      { path: 'timesheet/create', component: CreateTimesheetComponent, data: { requiredRole: ['admin','employee'] } },
+      { path: 'emp', component: EmpComponent, data: { requiredRole: ['admin'] } },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
-    ]
+    ],
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 

@@ -1,58 +1,212 @@
-<div style="margin: 25px;" class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+<!-- <div style="margin: 25px;" class="mat-elevation-z8">
+    <form [formGroup]="timesheetForm">
+        <div style="display: flex; justify-content: flex-start; padding: 10px 20px;">
+            <mat-form-field>
+                <mat-label>Period</mat-label>
+                <mat-select formControlName="period">
+                    <mat-option value="2304-2904">23rd April - 29th April</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <table mat-table [dataSource]="dataSource">
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let element">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Ex. Pizza" value="Sushi">
-                </mat-form-field>
-            </td>
-        </ng-container>
+            <ng-container matColumnDef="project">
+                <th mat-header-cell *matHeaderCellDef> Project </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="project">
+                    </mat-form-field>
+                </td>
+            </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="transferredTo">
-            <th mat-header-cell *matHeaderCellDef> Transferred To </th>
-            <td mat-cell *matCellDef="let element">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Ex. Pizza" value="Sushi">
-                </mat-form-field>
-            </td>
-        </ng-container>
+            <ng-container matColumnDef="task">
+                <th mat-header-cell *matHeaderCellDef> Task </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="task">
+                    </mat-form-field>
+                </td>
+            </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="recordedHours">
-            <th mat-header-cell *matHeaderCellDef> Recorded Hours </th>
-            <td mat-cell *matCellDef="let element"> 
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Ex. Pizza" value="Sushi">
-                </mat-form-field>
-            </td>
-        </ng-container>
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> Type </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="type">
+                    </mat-form-field>
+                </td>
+            </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="periodStarting">
-            <th mat-header-cell *matHeaderCellDef> Period Starting </th>
-            <td mat-cell *matCellDef="let element"> 
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Ex. Pizza" value="Sushi">
-                </mat-form-field>
-            </td>
-        </ng-container>
+            <ng-container matColumnDef="day1">
+                <th mat-header-cell *matHeaderCellDef> Day 1 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day1">
+                    </mat-form-field>
+                </td>
+            </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="periodEnding">
-            <th mat-header-cell *matHeaderCellDef> Period Ending </th>
-            <td mat-cell *matCellDef="let element"> 
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Ex. Pizza" value="Sushi">
-                </mat-form-field>
-            </td>
-        </ng-container>
+          
+            <ng-container matColumnDef="day2">
+                <th mat-header-cell *matHeaderCellDef> Day 2 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day2">
+                    </mat-form-field>
+                </td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
 
-</div>
+            <ng-container matColumnDef="day3">
+                <th mat-header-cell *matHeaderCellDef> Day 3 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day3">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+              <ng-container matColumnDef="day4">
+                <th mat-header-cell *matHeaderCellDef> Day 4 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day4">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="day5">
+                <th mat-header-cell *matHeaderCellDef> Day 5 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day5">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+    
+            <ng-container matColumnDef="day6">
+                <th mat-header-cell *matHeaderCellDef> Day 6 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day6">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+ 
+            <ng-container matColumnDef="day7">
+                <th mat-header-cell *matHeaderCellDef> Day 7 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="day7">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <button mat-button mat-raised-button color="primary" style="margin: 20px"
+            (click)="saveTimesheet()">Save</button>
+    </form>
+</div> -->
+<mat-card style="margin: 45px; padding: 25px">
+    <mat-card-header>
+        <mat-card-title>Timesheets</mat-card-title>
+
+    </mat-card-header>
+    <div style="display: flex; justify-content: flex-start; padding: 10px 20px;">
+        <mat-form-field>
+            <mat-label>Period</mat-label>
+            <mat-select formControlName="period" (selectionChange)="changePeriod()">
+                <mat-option>Select</mat-option>
+                <mat-option *ngFor="let period of lstPeriods" [value]="period.value">{{period.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <mat-card-content>
+        <div style="overflow: auto;">
+            <form [formGroup]="timesheetForm">
+
+                <table class="timesheet-table">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Task</th>
+                            <th>Type</th>
+
+                            <ng-container>
+                                <th *ngFor="let day of days">{{day}}</th>
+                            </ng-container>
+                            <!-- 
+                            <th>Sat, May 04</th>
+                            <th>Sun, May 05</th>
+                            <th>Mon, May 06</th>
+                            <th>Tue, May 07</th>
+                            <th>Wed, May 08</th>
+                            <th>Thu, May 09</th>
+                            <th>Fri, May 10</th> -->
+
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" formControlName="project">
+                            </td>
+                            <td>
+                                <input type="text" formControlName="task">
+                            </td>
+                            <td>
+                                <input type="text" formControlName="type">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day1" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day2" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day3" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day4" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day5" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day6" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <input type="number" formControlName="day7" (change)="hourschange()">
+                            </td>
+                            <td>
+                                <label>{{totalHours}}</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </mat-card-content>
+
+    <mat-card-footer>
+        <mat-card-actions align="end">
+            <div class="example-button-row">
+                <!-- <button mat-flat-button color="warn" (click)="onCancel()">Cancel</button>
+      
+            <button mat-flat-button color="primary"  (click)="onSave()">Save</button> -->
+
+                <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+                <button mat-stroked-button color="primary" (click)="onSave()">Save</button>
+
+            </div>
+        </mat-card-actions>
+
+    </mat-card-footer>
+</mat-card>

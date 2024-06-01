@@ -1,5 +1,26 @@
-
-.p-field > * {
+/* .p-field>* {
   display: block;
+} */
+
+.contactForm {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
+.customCard {
+  margin: 1rem;
+  /* padding: 25px */
+}
+
+.customCardContent {
+  margin: 0.5rem 0;
+}
+
+.cr-form-field {
+  margin: 0.5rem;
+}
+
+.mat-mdc-form-field{
+  margin:0.1rem;
+}

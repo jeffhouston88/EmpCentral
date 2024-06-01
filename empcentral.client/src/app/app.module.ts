@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,12 +17,14 @@ import { TableModule } from 'primeng/table';
 import { FileUploadModule } from 'primeng/fileupload';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { EmpComponent } from './emp/emp.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
 import { ContractComponent } from './contract/contract.component';
 import { EmpContactComponent } from './emp/emp-contact/emp-contact.component';
+import { EmpListComponent } from './emp/emp-list/emp-list.component';
 
 
 import html2canvas from 'html2canvas';
@@ -44,11 +46,17 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from './home/home/home.component';
 
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CreateTimesheetComponent } from './create-timesheet/create-timesheet.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+
+
+import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
+
+
 
 @NgModule({
   declarations: [
@@ -62,17 +70,29 @@ import {provideNativeDateAdapter} from '@angular/material/core';
     LoginComponent,
     ProfileComponent,
     HomeComponent,
-    CreateTimesheetComponent
+    CreateTimesheetComponent,
+    EmpListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    AppRoutingModule, BrowserAnimationsModule,MatDatepickerModule, MatExpansionModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatCardModule, MatIconModule, MatButtonModule, MatMenuModule, MatToolbarModule, MatSidenavModule,
-    ButtonModule, MenubarModule, InputTextModule, MatListModule, InputSwitchModule, CalendarModule, TabViewModule, TableModule, FileUploadModule, InputNumberModule, DropdownModule
+    MatSlideToggleModule,
+    MatSelectModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule, MatExpansionModule,
+    MatGridListModule, MatFormFieldModule, MatInputModule,
+    MatCardModule, MatIconModule,
+    MatButtonModule, MatMenuModule, MatToolbarModule, MatSidenavModule,
+    ButtonModule, MenubarModule, InputTextModule,
+    MatListModule, InputSwitchModule, CalendarModule,
+    TabViewModule,
+    TableModule, FileUploadModule, InputNumberModule, DropdownModule, FlexModule, FlexLayoutModule
   ],
   providers: [
-    provideAnimationsAsync(),provideNativeDateAdapter()
+    provideAnimationsAsync(), provideNativeDateAdapter()
   ],
   bootstrap: [AppComponent]
 })
