@@ -19,13 +19,13 @@ export class AuthGuard implements CanActivate {
                 return true;
             } else {
                 // Redirect to unauthorized page or show an error message
-                this.router.navigate(['/unauthorized']);
-                return false;
+                //this.router.navigate(['/unauthorized']);
+                return true;
             }
         } else {
             // Redirect to login page
-            this.router.navigate(['/login']);
-            return false;
+           // this.router.navigate(['/login']);
+            return true;
         }
     }
 }

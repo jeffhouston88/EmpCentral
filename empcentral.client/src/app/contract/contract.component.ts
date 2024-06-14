@@ -12,8 +12,8 @@ export class ContractComponent {
 
   //datasource: Contract;
   //datasource = new Array<Contract>();
-  datasource: any[];
-  Vendors: any[];
+  datasource: any[] =[];
+  Vendors: any[] =[];
   datasource1 = new Contract(1, 1, new Date(2024, 1, 1), new Date(2024, 12, 30), 45.50, 45.50, true);
   datasource2 = new Contract(1, 2, new Date(2024, 1, 1), new Date(2024, 12, 30), 45.50, 45.50, true);
 

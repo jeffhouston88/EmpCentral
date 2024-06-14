@@ -23,49 +23,73 @@
   <mat-sidenav #sidenav class="sidenav"  [opened]="true" mode="side">
     <mat-list role="list">
       <mat-list-item role="listitem">
+        <span class="icon-container">
         <mat-icon>home</mat-icon>
-        <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/home'">Home</a>
+        </span>
+        <span class="title-text">
+        <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard'">Home</a>
+        </span>
       </mat-list-item>
+      
       <mat-accordion>
+
+        
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <mat-icon>ballot</mat-icon>
+              <span class="icon-container">
+              <mat-icon>date_range</mat-icon>
+              </span>
+              <span class="title-text">
               Time Sheets
+            </span>
+
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-list-item role="listitem">
             <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/timesheet'">List</a>
           </mat-list-item>
-          <mat-list-item role="listitem">
-            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/timesheet/create'">Create</a>
-          </mat-list-item>
+          <!-- <mat-list-item role="listitem">
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/timesheet/create'">PList</a>
+          </mat-list-item> -->
         </mat-expansion-panel>
       </mat-accordion>
+
+
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = false" (closed)="panelOpenState = true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <mat-icon>person</mat-icon>
-              <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Employees</a>
+              <span class="icon-container">
+              <mat-icon>people</mat-icon>
+              </span>
+              <span class="title-text">
+                Employees
+              <!-- <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Employees</a> -->
+              </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-list-item role="listitem">
-            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">List</a>
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'" title="Time Sheets Management">Time Sheets Mangement</a>
           </mat-list-item>
           <mat-list-item role="listitem">
-            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp'">Create</a>
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Employee List</a>
           </mat-list-item>
+       
         </mat-expansion-panel>
       </mat-accordion>
 
 
-      <mat-accordion>
+      <!-- <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = false" (closed)="panelOpenState = true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <mat-icon>person</mat-icon>
-              <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Company</a>
+              <span class="icon-container">
+              <mat-icon>business</mat-icon>
+              </span>
+              <span class="title-text">
+                Company
+              </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-list-item role="listitem">
@@ -75,7 +99,7 @@
             <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/contract'">Contract</a>
           </mat-list-item>
         </mat-expansion-panel>
-      </mat-accordion>
+      </mat-accordion> -->
 
 
     </mat-list>

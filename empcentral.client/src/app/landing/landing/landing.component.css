@@ -9,5 +9,17 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.title-text {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: super;
+}
+
 
 

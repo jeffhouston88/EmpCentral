@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VendorComponent } from './vendor.component';
+import { PTimesheetsComponent } from './p-timesheets.component';
 
-describe('VendorComponent', () => {
-  let component: VendorComponent;
-  let fixture: ComponentFixture<VendorComponent>;
+describe('PTimesheetsComponent', () => {
+  let component: PTimesheetsComponent;
+  let fixture: ComponentFixture<PTimesheetsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [VendorComponent]
+      declarations: [PTimesheetsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(VendorComponent);
+    fixture = TestBed.createComponent(PTimesheetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

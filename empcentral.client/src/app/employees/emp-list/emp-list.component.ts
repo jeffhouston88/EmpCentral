@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class EmpListComponent {
   displayedColumns = ['id', 'name', 'status', 'role'];
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort = new MatSort();
 
   EmpData: UserData[] = [
     {

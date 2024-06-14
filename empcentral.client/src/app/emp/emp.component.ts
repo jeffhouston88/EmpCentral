@@ -10,8 +10,8 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
   styleUrl: './emp.component.css'
 })
 export class EmpComponent implements OnInit {
-  contactForm: FormGroup;
-  maxDate: Date;
+  contactForm: FormGroup = new FormGroup({});
+  maxDate: Date = new Date();
   personalInfo = new PersonalInfo('Sai', 'minnekanti', '', 'sai Minnekanti', 1, false, new Date(2024, 1, 1));
   conDetails = new Contactdetails(1234567890, 12345, 1234567890, 'test@test.com');
   add = new Address('addressline1', '', 'testcity', 'ny', 11746);
