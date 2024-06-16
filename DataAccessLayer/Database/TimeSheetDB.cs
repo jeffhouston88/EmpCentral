@@ -20,6 +20,7 @@ namespace DataAccessLayer.Database
             _obj.recordedHours = 40;
             _obj.periodStarting = "15th April 2024";
             _obj.periodEnding = "19th April 2024";
+            _obj.Status = "In Progress";
 
             timeSheet.Add(_obj);
             TimeSheet _obj1 = new TimeSheet();
@@ -31,6 +32,8 @@ namespace DataAccessLayer.Database
             _obj1.periodStarting = "8th April 2024";
             _obj1.periodEnding = "12th April 2024";
             timeSheet.Add(_obj1);
+            _obj1.Status = "Completed";
+
             return timeSheet;
 
 

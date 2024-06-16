@@ -52,9 +52,15 @@ export class TimesheetService {
     //         return data; });
     // }
     getTimesheets(): Observable<Timesheets[]> {
-        return this.http.get<{ data: Timesheets[] }>(`${this.apiUrl}/GetTimesheets`)
+        // return this.http.get<{ data: Timesheets[] }>(`${this.apiUrl}/GetTimesheets`)
+        //     .pipe(
+        //         map(res => res.data)
+        //     );
+
+            return this.http.get<Timesheets[]>(`${this.apiUrl}/GetTimesheets`)
             .pipe(
-                map(res => res.data)
+              map(res => res)
             );
+        
       }
     }

@@ -20,27 +20,7 @@ styleUrls: ['./p-timesheets.scss']
 })
 export class PTimesheetsComponent {
     timesheetDialog: boolean = false;
-    timeSheets: Timesheets[] =[
-
-        {
-            ID: 1,
-            project: "Test Project 1",
-            Vendor: "test Vendor 1",
-            status: "in progress",
-            recordedHours  :0,
-            periodStarting: "may1st 2021",
-            periodEnding: "may 7th 2021" 
-        },
-        {
-            ID: 2,
-            project: "Test Project 1",
-            Vendor: "test Vendor 1",
-            status: "in progress",
-            recordedHours  :0,
-            periodStarting: "may1st 2021",
-            periodEnding: "may 7th 2021" 
-        }
-    ];
+    timeSheets: Timesheets[] =[ ];
     timesheet: Timesheets ={ID:0, project:"", Vendor:"", status:"", recordedHours:0, periodStarting:"", periodEnding:""};
     selectedtimeSheet: Timesheets[] = [];
 
@@ -67,8 +47,8 @@ export class PTimesheetsComponent {
     getTimesheets(): void {
       this.timeSheetSvc.getTimesheets().subscribe(
         data => {
-        //   this.timeSheets = data;
-        // console.log(this.timeSheets);
+          this.timeSheets = data;
+        console.log(this.timeSheets);
 
         },
         error => {

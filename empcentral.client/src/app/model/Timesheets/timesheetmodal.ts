@@ -18,5 +18,5 @@ export interface CreateTimesheets {
    Day5: number;
    Day6: number;
    Day7: number;
-   TotalHours: number;
+   attachment: string;
 }
