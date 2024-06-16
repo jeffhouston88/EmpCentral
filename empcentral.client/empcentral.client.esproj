@@ -8,8 +8,21 @@
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\empcentral.client\</PublishAssetsDirectory>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\dashboard\" />
-    <Folder Include="src\app\shared\" />
-    <Folder Include="src\NewFolder\" />
+    <TypeScriptConfiguration Remove="src\app\dashboard\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\dashboard\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\NewFolder\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\NewFolder\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\app\shared\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\shared\**" />
   </ItemGroup>
 </Project>

@@ -1,33 +1,45 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-    <td mat-cell *matCellDef="let element">{{element.id}}</td>
-  </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-    <td mat-cell *matCellDef="let element">{{element.name}} </td>
-  </ng-container>
+<p-toast></p-toast>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let element">{{element.status}}</td>
-  </ng-container>
+<div class="card">
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+      <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>     
+    </ng-template>
+  </p-toolbar>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="role">
-    <th mat-header-cell *matHeaderCellDef>Role</th>
-    <td mat-cell *matCellDef="let element">{{element.role}}</td>
-  </ng-container>
+  <p-table #dt [value]="employeeslist" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']"
+           [(selection)]="selectedemployee" [rowHover]="true" dataKey="id"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    <ng-template pTemplate="header">
+      <tr>    
+        <th pSortableColumn="Name">Project <p-sortIcon field="name"></p-sortIcon></th>
+        <th pSortableColumn="Status">Vendor <p-sortIcon field="price"></p-sortIcon></th>
+        <th pSortableColumn="Role">period Starting <p-sortIcon field="periodStarting"></p-sortIcon></th>     
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-employee>
+      <tr>
+        <!-- <td>
+            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+        </td> -->
+        <td>{{employee.name}}</td>
+        
+        <td>{{employee.status}}</td>
+        <td>{{employee.role}}</td>
+        <td><span [class]="'product-badge status-' + timesheet.status.toLowerCase()">{{timesheet.status}}</span></td>
+       
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(timesheet)"></button>
+          
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row
-      (click)="editContact(row)"
-      *matRowDef="let row; columns: displayedColumns; "></tr> 
-</table>
+
 
 
 
