@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { EmpComponent } from './emp/emp.component'
+//import { EmpComponent } from './emp/emp.component'
 import { ContractComponent } from './contract/contract.component'
 import { LoginComponent } from './login/login/login.component';
 import { LandingComponent } from './landing/landing/landing.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent, data: { requiredRole: ['admin'] } },
       { path: 'home', component: HomeComponent, data: { requiredRole: ['admin']} },
       { path: 'timesheet', component: PTimesheetsComponent, data: { requiredRole: ['admin','employee'] } },
-      { path: 'emp', component: EmpComponent, data: { requiredRole: ['admin'] } },
+  //    { path: 'emp', component: EmpComponent, data: { requiredRole: ['admin'] } },
       { path: 'emp/emplist', component: EmpListComponent, data: { requiredRole: ['admin'] } },
       { path: 'contracts', component: EmpListComponent, data: { requiredRole: ['admin'] } },
       { path: 'emp/details', component: EmpDetailsComponent, data: { requiredRole: ['admin'] } },

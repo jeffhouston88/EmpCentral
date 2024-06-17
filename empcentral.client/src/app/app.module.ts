@@ -10,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
-//import { ToggleButtonModule } from 'primeng/togglebutton';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
@@ -20,9 +20,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { ContractComponent } from './contract/contract.component';
-import { EmpContactComponent } from './emp/emp-contact/emp-contact.component';
 import { EmpListComponent } from './employees/emp-list/emp-list.component';
-import { EmpComponent } from './emp/emp.component';
+//import { EmpComponent } from './emp/emp.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -75,9 +74,8 @@ import { EmpDetailsComponent } from './employees/emp-details/emp-details.compone
 @NgModule({
   declarations: [
     AppComponent,
-    EmpComponent,
+    
     ContractComponent,
-    EmpContactComponent,
     LandingComponent,
     LoginComponent,
     ProfileComponent,
