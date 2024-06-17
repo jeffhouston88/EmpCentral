@@ -26,6 +26,9 @@
     <None Remove="src\app\shared\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\app\emp\" />
+    <TypeScriptConfiguration Remove="src\app\emp\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\emp\**" />
   </ItemGroup>
 </Project>
