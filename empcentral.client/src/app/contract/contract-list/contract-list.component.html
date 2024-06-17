@@ -15,21 +15,21 @@
       <td>{{datasource.ContractID}}</td>
 
       <!--<td [pEditableColumn]="datasource.VendorID" pEditableColumnField="VendorID">
-    <p-cellEditor>
-      <ng-template pTemplate="input">
-        <input pInputText type="text" [(ngModel)]="datasource.VendorID" />
-      </ng-template>
-      <ng-template pTemplate="output">
-        {{ datasource.VendorID }}
-      </ng-template>
-    </p-cellEditor>
-  </td>-->
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="datasource.VendorID" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ datasource.VendorID }}
+          </ng-template>
+        </p-cellEditor>
+      </td>-->
 
       <td [pEditableColumn]="datasource.VendorID" pEditableColumnField="VendorID">
         <p-cellEditor>
           <ng-template pTemplate="input">
             <p-dropdown appendTo="body" [options]="Vendors" [(ngModel)]="datasource.VendorID"
-              [style]="{'width':'100%'}"></p-dropdown>
+                        [style]="{'width':'100%'}"></p-dropdown>
           </ng-template>
           <ng-template pTemplate="output">
             {{datasource.VendorID.name}}
@@ -42,7 +42,7 @@
           <ng-template pTemplate="input">
             <!--<input pInputText type="text" [(ngModel)]="datasource.StartDate" />-->
             <p-calendar [(ngModel)]="datasource.StartDate" [showIcon]="true" inputId="startDate"
-              name="startDate"></p-calendar>
+                        name="startDate"></p-calendar>
           </ng-template>
           <ng-template pTemplate="output">
             {{ datasource.StartDate }}
@@ -55,7 +55,7 @@
           <ng-template pTemplate="input">
             <!--<input pInputText type="text" [(ngModel)]="datasource.TimesheetTueHr" />-->
             <p-calendar [(ngModel)]="datasource.EndDate" [showIcon]="true" inputId="EndDate"
-              name="EndDate"></p-calendar>
+                        name="EndDate"></p-calendar>
           </ng-template>
           <ng-template pTemplate="output">
             {{ datasource.EndDate }}
@@ -69,7 +69,7 @@
           <ng-template pTemplate="input">
             <!--<input pInputText type="text" [(ngModel)]="datasource.TimesheetWenHr" />-->
             <p-inputNumber [(ngModel)]="datasource.VendorChargeRate" inputId="vChargeRate" mode="currency"
-              currency="USD" locale="en-US"> </p-inputNumber>
+                           currency="USD" locale="en-US"> </p-inputNumber>
           </ng-template>
           <ng-template pTemplate="output">
             {{ datasource.VendorChargeRate }}
@@ -83,7 +83,7 @@
           <ng-template pTemplate="input">
             <!--<input pInputText type="text" [(ngModel)]="datasource.TimesheetThuHr" />-->
             <p-inputNumber [(ngModel)]="datasource.EmployeePayRate" inputId="ePayrate" mode="currency" currency="USD"
-              locale="en-US"> </p-inputNumber>
+                           locale="en-US"> </p-inputNumber>
           </ng-template>
           <ng-template pTemplate="output">
             {{ datasource.EmployeePayRate }}

@@ -19,7 +19,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
-import { ContractComponent } from './contract/contract.component';
+
 import { EmpListComponent } from './employees/emp-list/emp-list.component';
 //import { EmpComponent } from './emp/emp.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -67,7 +67,9 @@ import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { LoginService } from './services/login.service';
 import { TimesheetService } from './services/timesheet.service';
-import { EmpDetailsComponent } from './employees/emp-details/emp-details.component'; 
+import { EmpDetailsComponent } from './employees/emp-details/emp-details.component';
+import { ContractListComponent } from './contract/contract-list/contract-list.component';
+import { ContractDetailsComponent } from './contract/contract-details/contract-details.component'; 
 
 
 
@@ -75,14 +77,16 @@ import { EmpDetailsComponent } from './employees/emp-details/emp-details.compone
   declarations: [
     AppComponent,
     
-    ContractComponent,
+    
     LandingComponent,
     LoginComponent,
     ProfileComponent,
     HomeComponent,
     EmpListComponent,
     PTimesheetsComponent,
-    EmpDetailsComponent
+    EmpDetailsComponent,
+    ContractListComponent,
+    ContractDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,
