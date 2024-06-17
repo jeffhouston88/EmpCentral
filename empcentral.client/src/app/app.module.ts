@@ -66,9 +66,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-
 import { LoginService } from './services/login.service';
 import { TimesheetService } from './services/timesheet.service';
+import { EmpDetailsComponent } from './employees/emp-details/emp-details.component'; 
 
 
 
@@ -83,7 +83,8 @@ import { TimesheetService } from './services/timesheet.service';
     ProfileComponent,
     HomeComponent,
     EmpListComponent,
-    PTimesheetsComponent
+    PTimesheetsComponent,
+    EmpDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,

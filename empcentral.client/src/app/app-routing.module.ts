@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EmpListComponent } from './employees/emp-list/emp-list.component';
 import { PTimesheetsComponent } from './timesheetscomponent/p-timesheets.component';
+import { EmpDetailsComponent } from './employees/emp-details/emp-details.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
       { path: 'emp', component: EmpComponent, data: { requiredRole: ['admin'] } },
       { path: 'emp/emplist', component: EmpListComponent, data: { requiredRole: ['admin'] } },
       { path: 'contracts', component: EmpListComponent, data: { requiredRole: ['admin'] } },
-
+      { path: 'emp/details', component: EmpDetailsComponent, data: { requiredRole: ['admin'] } },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ],
   },
