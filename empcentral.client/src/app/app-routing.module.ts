@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { EmpListComponent } from './employees/emp-list/emp-list.component';
 import { PTimesheetsComponent } from './timesheetscomponent/p-timesheets.component';
 
+
 const routes: Routes = [
   // { path: 'contract', component: ContractComponent },
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'timesheet', component: PTimesheetsComponent, data: { requiredRole: ['admin','employee'] } },
       { path: 'emp', component: EmpComponent, data: { requiredRole: ['admin'] } },
       { path: 'emp/emplist', component: EmpListComponent, data: { requiredRole: ['admin'] } },
+      { path: 'contracts', component: EmpListComponent, data: { requiredRole: ['admin'] } },
 
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ],

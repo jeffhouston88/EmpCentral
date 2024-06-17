@@ -75,12 +75,11 @@
           <mat-list-item role="listitem">
             <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/emp/emplist'">Employee List</a>
           </mat-list-item>
-
         </mat-expansion-panel>
       </mat-accordion>
 
 
-      <!-- <mat-accordion>
+      <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = false" (closed)="panelOpenState = true">
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -96,10 +95,10 @@
             <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/vendor'">Vendor</a>
           </mat-list-item>
           <mat-list-item role="listitem">
-            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/contract'">Contract</a>
+            <a (click)="sidenav.toggle()" style="text-decoration: none;" [routerLink]="'/dashboard/contracts'">Contracts</a>
           </mat-list-item>
         </mat-expansion-panel>
-      </mat-accordion> -->
+      </mat-accordion>
 
 
     </mat-list>
