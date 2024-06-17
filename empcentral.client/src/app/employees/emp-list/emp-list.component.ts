@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
+//import { MatTableDataSource } from '@angular/material/table';
+//import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
+//import { MatPaginatorModule } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class EmpListComponent {
   displayedColumns = ['id', 'name', 'status', 'role'];
-  @ViewChild(MatSort) sort: MatSort = new MatSort();
+  //@ViewChild(MatSort) sort: MatSort = new MatSort();
 
   EmpData: UserData[] = [
     {
@@ -41,7 +42,7 @@ export class EmpListComponent {
     },
   ];
 
-  dataSource = new MatTableDataSource(this.EmpData);
+  //dataSource = new MatTableDataSource(this.EmpData);
   constructor(private router: Router) { }
 
  
