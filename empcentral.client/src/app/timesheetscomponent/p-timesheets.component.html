@@ -1,16 +1,30 @@
 <p-toast></p-toast>
 
+
 <div class="card">
     <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="left">
-            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+            <p-calendar inputId="basic" [(ngModel)]="fromDate" placeholder="From Date"></p-calendar>
+
+            &nbsp;
+
+            <p-calendar inputId="basic" [(ngModel)]="toDate" placeholder="To Date"></p-calendar>
+
+            &nbsp;
+            <button pButton pRipple label="Search" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="search()"></button>
+
             <!-- <button pButton pRipple [label]="'Delete'" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
         </ng-template>
 
-        <!-- <ng-template pTemplate="right">
-            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
-            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
-        </ng-template> -->
+     
+
+        <ng-template pTemplate="right">
+
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+
+            <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button> -->
+        </ng-template>
     </p-toolbar>
 
     <p-table #dt [value]="timeSheets" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']"
@@ -69,14 +83,31 @@
 
 <p-dialog [(visible)]="timesheetDialog" [style]="{width: '450px'}" header="Timesheet Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        <!-- <div class="field">
-            <label for="name">Name</label>
-            <input type="text" pInputText id="name" [(ngModel)]="timesheet.project" required autofocus />
-            <small class="p-invalid" *ngIf="submitted && !product.name">Name is required.</small>
-        </div>
         <div class="field">
+            <!-- <label for="name">Select Week</label> -->
+            <p-dropdown
+            [options]="weeks" 
+            placeholder="Select a Week"
+            optionLabel="weekDetails"
+            [showClear]="true"> 
+          </p-dropdown> 
+            <small class="p-invalid" *ngIf="submitted && !timesheet.project">Week is required.</small>
+        </div>
+        <!-- <div class="field">
+        <p-fileUpload  #fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"  (onUpload)="onUpload($event)" ></p-fileUpload>
+        <button type="button" (click)="clearFiles()">Clear Files</button>
+        </div> -->
+        <div class="field">
+        <div class="upload-container">
+            <p-fileUpload #fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" 
+                          label="Import" chooseLabel="Import" 
+                          (onUpload)="onUpload($event)" ></p-fileUpload>
+            <button type="button" class="clear-button" (click)="clearFiles()">Clear</button>
+          </div>
+          </div>
+        <!-- <div class="field">
             <label for="description">Description</label>
-            <textarea id="description" pInputTextarea [(ngModel)]="product.description" required rows="3" cols="20"></textarea>
+            <textarea id="description" pInputTextarea [(ngModel)]="timesheet.project" required rows="3" cols="20"></textarea>
         </div> -->
 
         <!-- <div class="field">
@@ -104,13 +135,62 @@
         <div class="formgrid grid">
             <div class="field col">
                 <label for="project">project</label>
-                <p-inputNumber id="project" [(ngModel)]="timesheet.project" ></p-inputNumber>
+
+                <input type="text" id="project"  pInputText [(ngModel)]="timesheet.project"/>
+                <!-- <p-inputNumber id="project" [(ngModel)]="timesheet.project" ></p-inputNumber> -->
             </div>
             <div class="field col">
                 <label for="Vendor">Vendor</label>
-                <p-inputNumber id="Vendor" [(ngModel)]="timesheet.Vendor"></p-inputNumber>
+                <input type="text" id="project"  pInputText [(ngModel)]="timesheet.vendor"/>
+
+                <!-- <p-inputNumber id="Vendor" [(ngModel)]="timesheet.vendor"></p-inputNumber> -->
+            </div>
+            <div class="field col">
+                <label for="Vendor">Vendor</label>
+                <input type="text" id="project"  pInputText [(ngModel)]="timesheet.day1"/>
+
+                <!-- <p-inputNumber id="Vendor" [(ngModel)]="timesheet.vendor"></p-inputNumber> -->
             </div>
         </div>
+
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="Day1">Day 1</label>
+                <p-inputNumber id="Day1" [(ngModel)]="timesheet.day1" ></p-inputNumber>
+            </div>
+            <div class="field col">
+                <label for="Day2">Day 2</label>
+                <p-inputNumber id="Day2" [(ngModel)]="timesheet.day2" ></p-inputNumber>
+            </div>
+            <div class="field col">
+                <label for="Day3">Day 3</label>
+                <p-inputNumber id="Day3" [(ngModel)]="timesheet.day3" ></p-inputNumber>
+            </div>
+        </div>
+
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="Day4">Day 4</label>
+                <p-inputNumber id="Day4" [(ngModel)]="timesheet.day4" ></p-inputNumber>
+            </div>
+            <div class="field col">
+                <label for="Day4">Day 5</label>
+                <p-inputNumber id="Day5" [(ngModel)]="timesheet.day5" ></p-inputNumber>
+            </div>
+            <div class="field col">
+                <label for="Day6">Day 6</label>
+                <p-inputNumber id="Day6" [(ngModel)]="timesheet.day6" ></p-inputNumber>
+            </div>
+        </div>
+
+        
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="Day7">Day 7</label>
+                <p-inputNumber id="Day7" [(ngModel)]="timesheet.day7" ></p-inputNumber>
+            </div>
+        </div>
+        
     </ng-template>
     
     <ng-template pTemplate="footer">

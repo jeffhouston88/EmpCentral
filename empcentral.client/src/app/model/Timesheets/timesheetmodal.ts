@@ -1,13 +1,32 @@
 export interface Timesheets {
     ID: number;
+    statusID:number
     project: string;
-    Vendor: string;
+    vendor: string;
     status: string;
     recordedHours: number;
     periodStarting: string;
     periodEnding: string;
+   day1: number;
+   day2: number;
+   day3: number;
+   day4: number;
+   day5: number;
+   day6: number;
+   day7: number;
+   attachment: string;
 }
 
+
+export interface week{
+
+    id: number;
+    weekDetails: string;
+    fromDate:Date;
+    toDate:Date;
+    status:number;
+
+}
 
 export interface CreateTimesheets {
    TimetSheetDetails:Timesheets;

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
-import {Timesheets} from '../model/Timesheets/timesheetmodal';
+import {Timesheets, week} from '../model/Timesheets/timesheetmodal';
 import { map } from 'rxjs/operators';
+import { Data } from '@angular/router';
 
 
 @Injectable({
@@ -62,5 +63,49 @@ export class TimesheetService {
               map(res => res)
             );
         
+      }
+
+
+
+    getTimesheetwithSearch(startDate: Date, endDate: Date): Observable<Timesheets[]> {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+debugger;
+let params = new HttpParams()
+.set('startDate', startDate.toISOString())
+.set('endDate', endDate.toISOString());
+
+        return this.http.get<Timesheets[]>(`${this.apiUrl}/GetTimesheetwithSearch`, { params })
+            .pipe(
+                map(res => res)
+            );
+    }
+
+
+      getWeeks(): Observable<week[]> {
+        // return this.http.get<{ data: Timesheets[] }>(`${this.apiUrl}/GetTimesheets`)
+        //     .pipe(
+        //         map(res => res.data)
+        //     );
+
+            return this.http.get<week[]>(`${this.apiUrl}/GetWeeks`)
+            .pipe(
+              map(res => res)
+            );
+        
+      }
+
+      getParamas(searchParams:any){
+        let params = new HttpParams();
+    
+        // Append search parameters to HttpParams object
+        for (const key in searchParams) {
+          if (searchParams.hasOwnProperty(key)) {
+            params = params.append(key, searchParams[key]);
+          }
+        }
+
+        return params;
       }
     }

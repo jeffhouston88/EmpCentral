@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 // import { Product } from '../../app/model/';
 // import { ProductService } from '../../../../app/services/product.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { TimesheetService } from '../../app/services/timesheet.service';
-import { Timesheets } from '../../app/model/Timesheets/timesheetmodal';
+import { Timesheets,week } from '../../app/model/Timesheets/timesheetmodal';
+import { FileUpload } from 'primeng/fileupload';
 
 @Component({
   selector: 'app-p-timesheets',
@@ -19,30 +20,61 @@ import { Timesheets } from '../../app/model/Timesheets/timesheetmodal';
 styleUrls: ['./p-timesheets.scss']
 })
 export class PTimesheetsComponent {
+    @ViewChild('fileUpload') fileUpload: FileUpload;
     timesheetDialog: boolean = false;
     timeSheets: Timesheets[] =[ ];
-    timesheet: Timesheets ={ID:0, project:"", Vendor:"", status:"", recordedHours:0, periodStarting:"", periodEnding:""};
     selectedtimeSheet: Timesheets[] = [];
 
-     defaultTimesheet: Timesheets = {
+    defaultTimesheet: Timesheets = {
         ID: 0,
+        statusID: 0,
         project: "",
-        Vendor: "",
+        vendor: "",
         status: "",
-        recordedHours  :0,
+        recordedHours: 0,
         periodStarting: "",
-        periodEnding: ""
-      };
+        periodEnding: "",
+        day1: 0,
+        day2: 0,
+        day3: 0,
+        day4: 0,
+        day5: 0,
+        day6: 0,
+        day7: 0,
+        attachment: ""
+    };
+    timesheet: Timesheets = this.defaultTimesheet;
+    weeks: week[] = []; // Fix the type declaration
 
     submitted: boolean = false;
+    fromDate:Date;
+    toDate:Date;
+
+    // lang = [ 
+    //     { name: "HTML" }, 
+    //     { name: "ReactJS" }, 
+    //     { name: "Angular" }, 
+    //     { name: "Bootstrap" }, 
+    //     { name: "PrimeNG" }, 
+    // ]; 
+    //   ]; 
 
     constructor(private timeSheetSvc:TimesheetService , private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
     ngOnInit() {
        // this.productService.getProducts().then(data => this.products = data);
        this.getTimesheets();
-
+   
     }
+
+    onUpload(event: any) {
+        // Handle the upload event
+        console.log('File uploaded:', event);
+      }
+    
+      clearFiles() {
+        this.fileUpload.clear();
+      }
 
     getTimesheets(): void {
       this.timeSheetSvc.getTimesheets().subscribe(
@@ -57,7 +89,46 @@ export class PTimesheetsComponent {
       );
     }
 
+    getWeeks(): void {
+        this.timeSheetSvc.getWeeks().subscribe(
+          data => {
+            this.weeks = data;
+          console.log(this.timeSheets);
+  
+          },
+          error => {
+            console.error('Error fetching timesheets', error);
+          }
+        );
+      } 
+     
+      convertToDate(dateString: string): Date {
+        // Handle various date formats if necessary
+        // Example: YYYY-MM-DD
+        return new Date(dateString);
+      }
+      search() {
+debugger;
+
+const startDate = new Date(this.fromDate.toString());
+const endDate = new Date(this.toDate.toString());
+        // const searchParams = {
+        //     fromdate: this.convertToDate(this.fromDate.toString()),
+        //     todate: this.convertToDate(this.toDate.toString())
+        //   };
+        this.timeSheetSvc.getTimesheetwithSearch(startDate, endDate).subscribe(
+          data => {
+            this.timeSheets = data;
+          console.log(this.timeSheets);
+  
+          },
+          error => {
+            console.error('Error fetching timesheets', error);
+          }
+        );
+      }
     openNew() {
+        this.getWeeks();
         this.timesheet = this.defaultTimesheet;
         this.submitted = false;
         this.timesheetDialog = true;
@@ -77,6 +148,8 @@ export class PTimesheetsComponent {
     // }
 
     editProduct(_timesheet: Timesheets) {
+
+        debugger;
         this.timesheet = {..._timesheet};
         this.timesheetDialog = true;
     }
